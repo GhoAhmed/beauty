@@ -6,125 +6,16 @@ import {
   DollarSign,
   Scissors,
   TrendingUp,
-  AlertCircle,
-  CheckCircle,
   Clock,
   Search,
 } from "lucide-react";
-
-const USERS = [
-  {
-    name: "Sarah Mitchell",
-    email: "sarah@luxestudio.com",
-    role: "Owner",
-    salons: 2,
-    joined: "Jan 12, 2025",
-    status: "active",
-    revenue: "$12,450",
-  },
-  {
-    name: "Aisha Patel",
-    email: "aisha@glowspa.com",
-    role: "Owner",
-    salons: 1,
-    joined: "Feb 3, 2025",
-    status: "active",
-    revenue: "$8,200",
-  },
-  {
-    name: "Marcus Thompson",
-    email: "marcus@hairelite.com",
-    role: "Owner",
-    salons: 3,
-    joined: "Dec 8, 2024",
-    status: "suspended",
-    revenue: "$0",
-  },
-  {
-    name: "Emma Johnson",
-    email: "emma.j@gmail.com",
-    role: "Client",
-    salons: 0,
-    joined: "Mar 1, 2025",
-    status: "active",
-    revenue: "-",
-  },
-  {
-    name: "Nina Kowalski",
-    email: "nina@nailbar.pl",
-    role: "Owner",
-    salons: 1,
-    joined: "Apr 2, 2025",
-    status: "pending",
-    revenue: "$0",
-  },
-  {
-    name: "Carlos Mendez",
-    email: "carlos@barberkings.es",
-    role: "Owner",
-    salons: 1,
-    joined: "Apr 18, 2025",
-    status: "active",
-    revenue: "$3,100",
-  },
-];
-
-const PLATFORM_STATS = [
-  { month: "Jan", bookings: 1200, revenue: 48000 },
-  { month: "Feb", bookings: 1450, revenue: 58000 },
-  { month: "Mar", bookings: 1300, revenue: 52000 },
-  { month: "Apr", bookings: 1800, revenue: 72000 },
-];
-
-const RECENT_ACTIVITY = [
-  {
-    text: "New salon registered: Bloom Beauty Bar",
-    time: "5m ago",
-    type: "new",
-  },
-  {
-    text: "Payout processed: $2,400 to Sarah M.",
-    time: "12m ago",
-    type: "payment",
-  },
-  { text: "Dispute opened: Order #8841", time: "1h ago", type: "alert" },
-  {
-    text: "New client milestone: 12,000 users",
-    time: "2h ago",
-    type: "success",
-  },
-  {
-    text: "Subscription upgrade: Marcus T. → Pro",
-    time: "3h ago",
-    type: "new",
-  },
-];
-
-const STATUS_MAP = {
-  active: {
-    label: "Active",
-    cls: "bg-emerald-500/10 text-emerald-300 border-emerald-500/20",
-  },
-  suspended: {
-    label: "Suspended",
-    cls: "bg-red-500/10 text-red-300 border-red-500/20",
-  },
-  pending: {
-    label: "Pending",
-    cls: "bg-amber-500/10 text-amber-300 border-amber-500/20",
-  },
-};
-
-const ACTIVITY_ICONS = {
-  new: { icon: Users, color: "text-purple-400", bg: "bg-purple-500/10" },
-  payment: {
-    icon: DollarSign,
-    color: "text-emerald-400",
-    bg: "bg-emerald-500/10",
-  },
-  alert: { icon: AlertCircle, color: "text-red-400", bg: "bg-red-500/10" },
-  success: { icon: CheckCircle, color: "text-blue-400", bg: "bg-blue-500/10" },
-};
+import {
+  ACTIVITY_ICONS,
+  PLATFORM_STATS,
+  RECENT_ACTIVITY,
+  STATUS_MAP,
+  USERS,
+} from "../constants";
 
 export default function AdminDashboard() {
   const [search, setSearch] = useState("");

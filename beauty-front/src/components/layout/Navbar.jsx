@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { Avatar, Badge } from "../ui";
 import { useAuth } from "../../context/AuthContext";
+import { notifs } from "../../constants";
 
 export default function Navbar({ title, role = "owner", onMobileMenuToggle }) {
   const { user, logout } = useAuth();
@@ -24,12 +25,6 @@ export default function Navbar({ title, role = "owner", onMobileMenuToggle }) {
       : role === "admin"
         ? "Admin User"
         : "Emma Johnson");
-
-  const notifs = [
-    { text: "New booking from Maria G.", time: "2m ago", dot: "bg-purple-400" },
-    { text: "Payment received $85", time: "14m ago", dot: "bg-emerald-400" },
-    { text: "3 appointments tomorrow", time: "1h ago", dot: "bg-amber-400" },
-  ];
 
   return (
     <header className="h-16 bg-[#1E293B]/80 backdrop-blur-md border-b border-white/5 flex items-center justify-between px-4 md:px-6 sticky top-0 z-30">

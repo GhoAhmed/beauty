@@ -2,49 +2,16 @@
 import { useState, useEffect } from "react";
 import { Avatar } from "../ui";
 import {
-  LayoutDashboard,
-  CalendarDays,
-  Scissors,
-  Users,
   Settings,
   ChevronLeft,
   ChevronRight,
-  Star,
   LogOut,
-  TrendingUp,
-  ShieldCheck,
-  BarChart3,
-  MessageSquare,
   Sparkles,
   X,
   Menu,
 } from "lucide-react";
 import { useAuth } from "../../context/AuthContext";
-
-const NAV_OWNER = [
-  { icon: LayoutDashboard, label: "Dashboard", id: "dashboard" },
-  { icon: CalendarDays, label: "Appointments", id: "appointments", badge: 3 },
-  { icon: Scissors, label: "Services", id: "services" },
-  { icon: Users, label: "Clients", id: "clients" },
-  { icon: TrendingUp, label: "Analytics", id: "analytics" },
-  { icon: Star, label: "Reviews", id: "reviews" },
-  { icon: MessageSquare, label: "Messages", id: "messages", badge: 2 },
-];
-
-const NAV_CLIENT = [
-  { icon: LayoutDashboard, label: "Dashboard", id: "dashboard" },
-  { icon: CalendarDays, label: "Book Now", id: "book" },
-  { icon: Star, label: "My Bookings", id: "bookings" },
-  { icon: MessageSquare, label: "Messages", id: "messages" },
-];
-
-const NAV_ADMIN = [
-  { icon: LayoutDashboard, label: "Overview", id: "dashboard" },
-  { icon: Users, label: "Users", id: "users" },
-  { icon: Scissors, label: "Salons", id: "salons" },
-  { icon: BarChart3, label: "Analytics", id: "analytics" },
-  { icon: ShieldCheck, label: "Moderation", id: "moderation" },
-];
+import { NAV_ADMIN, NAV_CLIENT, NAV_OWNER } from "../../constants";
 
 // Mobile sidebar toggle button — exported so Navbar can render it
 export function MobileMenuButton({ onClick }) {
