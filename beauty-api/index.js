@@ -3,6 +3,8 @@ const express = require("express");
 const app = express();
 const pool = require("./config/db");
 
+const authRoutes = require("./routes/authRoutes");
+
 app.use(express.json());
 
 // ✅ Check DB connection on startup
@@ -15,6 +17,8 @@ const checkDbConnection = async () => {
     process.exit(1); // stop the server if DB is unreachable
   }
 };
+
+app.use("/api", authRoutes);
 
 const PORT = process.env.PORT || 3000;
 
