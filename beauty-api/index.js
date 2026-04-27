@@ -2,6 +2,9 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const pool = require("./config/db");
+const cors = require("cors");
+
+app.use(cors({ origin: "http://localhost:5173" }));
 
 const authRoutes = require("./routes/authRoutes");
 
