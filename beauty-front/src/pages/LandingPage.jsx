@@ -1,16 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { Button, Badge } from "../components/ui";
-import {
-  Sparkles,
-  Star,
-  CheckCircle,
-  ArrowRight,
-  Globe,
-  InspectionPanel,
-  X,
-} from "lucide-react";
-import { FEATURES, NAV_LINKS, PLANS, STEPS, TESTIMONIALS } from "../constants";
+import { Sparkles, CheckCircle, ArrowRight } from "lucide-react";
+import { NAV_LINKS, PLANS } from "../constants";
+import SocialProof from "../components/ui/SocialProof";
+import Features from "../components/ui/Features";
+import HowItWorks from "../components/ui/HowItWorks";
+import Testimonials from "../components/ui/Testimonials";
+import Footer from "../components/ui/Footer";
 
 export default function LandingPage() {
   const navigate = useNavigate();
@@ -248,153 +245,16 @@ export default function LandingPage() {
       </section>
 
       {/* ── SOCIAL PROOF ───────────────────────────── */}
-      <section className="py-12 border-y border-white/5">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <p className="text-sm text-slate-500 mb-8 uppercase tracking-widest">
-            Trusted by 12,000+ beauty professionals worldwide
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-10 opacity-40">
-            {[
-              "Luxe Salon",
-              "Studio Amara",
-              "The Beauty Bar",
-              "Bloom Spa",
-              "Elite Cuts",
-              "Glow Studio",
-            ].map((brand) => (
-              <span key={brand} className="text-lg font-bold text-slate-300">
-                {brand}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
+      <SocialProof />
 
       {/* ── FEATURES ───────────────────────────────── */}
-      <section id="features" className="py-24 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <Badge variant="purple">Features</Badge>
-            <h2 className="text-4xl font-bold mt-4 mb-4">
-              Everything you need to thrive
-            </h2>
-            <p className="text-slate-400 text-lg max-w-xl mx-auto">
-              Purpose-built tools for beauty professionals. No fluff, just what
-              actually grows your business.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {FEATURES.map((feat, i) => {
-              const colorMap = {
-                purple:
-                  "bg-purple-500/10 text-purple-400 border-purple-500/20 group-hover:bg-purple-500/15",
-                pink: "bg-pink-500/10 text-pink-400 border-pink-500/20 group-hover:bg-pink-500/15",
-                amber:
-                  "bg-amber-500/10 text-amber-400 border-amber-500/20 group-hover:bg-amber-500/15",
-                indigo:
-                  "bg-indigo-500/10 text-indigo-400 border-indigo-500/20 group-hover:bg-indigo-500/15",
-                emerald:
-                  "bg-emerald-500/10 text-emerald-400 border-emerald-500/20 group-hover:bg-emerald-500/15",
-                rose: "bg-rose-500/10 text-rose-400 border-rose-500/20 group-hover:bg-rose-500/15",
-              };
-              return (
-                <div
-                  key={i}
-                  className="group bg-[#1E293B] rounded-2xl p-6 border border-white/5 hover:border-white/10 transition-all duration-300 hover:-translate-y-0.5"
-                >
-                  <div
-                    className={`w-12 h-12 rounded-xl border flex items-center justify-center mb-4 transition-all ${colorMap[feat.color]}`}
-                  >
-                    <feat.icon size={22} />
-                  </div>
-                  <h3 className="text-lg font-semibold mb-2">{feat.title}</h3>
-                  <p className="text-slate-400 text-sm leading-relaxed">
-                    {feat.desc}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <Features />
 
       {/* ── HOW IT WORKS ───────────────────────────── */}
-      <section id="how-it-works" className="py-24 px-6 bg-[#1E293B]/30">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <Badge variant="pink">How it works</Badge>
-            <h2 className="text-4xl font-bold mt-4 mb-4">
-              Up and running in 10 minutes
-            </h2>
-            <p className="text-slate-400 text-lg max-w-xl mx-auto">
-              No technical setup. No training needed. Just a better way to
-              manage your beauty business.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-            <div className="hidden md:block absolute top-10 left-1/4 right-1/4 h-px bg-gradient-to-r from-purple-500/0 via-purple-500/40 to-pink-500/40 to-transparent" />
-            {STEPS.map((step, i) => (
-              <div
-                key={i}
-                className="relative flex flex-col items-center text-center"
-              >
-                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-600/30 to-pink-500/20 border border-purple-500/20 flex flex-col items-center justify-center mb-6">
-                  <span className="text-2xl font-black bg-gradient-to-br from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                    {step.n}
-                  </span>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
-                <p className="text-slate-400 leading-relaxed">{step.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <HowItWorks />
 
       {/* ── TESTIMONIALS ───────────────────────────── */}
-      <section id="testimonials" className="py-24 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <Badge variant="amber">Testimonials</Badge>
-            <h2 className="text-4xl font-bold mt-4 mb-4">
-              Loved by beauty pros everywhere
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {TESTIMONIALS.map((t, i) => (
-              <div
-                key={i}
-                className="bg-[#1E293B] rounded-2xl p-6 border border-white/5"
-              >
-                <div className="flex mb-4">
-                  {Array.from({ length: t.rating }).map((_, j) => (
-                    <Star
-                      key={j}
-                      size={14}
-                      className="text-amber-400 fill-amber-400"
-                    />
-                  ))}
-                </div>
-                <p className="text-slate-300 leading-relaxed mb-6">
-                  "{t.text}"
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-sm font-bold text-white">
-                    {t.avatar}
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold">{t.name}</p>
-                    <p className="text-xs text-slate-500">{t.role}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Testimonials />
 
       {/* ── PRICING ────────────────────────────────── */}
       <section id="pricing" className="py-24 px-6 bg-[#1E293B]/30">
@@ -413,7 +273,7 @@ export default function LandingPage() {
             {PLANS.map((plan, i) => (
               <div
                 key={i}
-                className={`relative rounded-2xl p-6 border transition-all ${
+                className={`relative rounded-2xl p-12 border transition-all ${
                   plan.popular
                     ? "bg-gradient-to-b from-purple-600/20 to-pink-500/10 border-purple-500/40 scale-105"
                     : "bg-[#1E293B] border-white/5"
@@ -452,7 +312,7 @@ export default function LandingPage() {
                 </ul>
                 <Button
                   variant={plan.popular ? "primary" : "secondary"}
-                  className="w-full"
+                  className="w-50 absolute bottom-8 left-1/2 -translate-x-1/2 translate-y-1/2"
                   onClick={() => (user ? toDashboard() : navigate("/register"))}
                 >
                   {user ? "Go to Dashboard" : plan.cta}
@@ -508,48 +368,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── FOOTER ─────────────────────────────────── */}
-      <footer className="border-t border-white/5 py-12 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
-                <Sparkles size={13} className="text-white" />
-              </div>
-              <span className="font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                Glamora
-              </span>
-            </div>
-
-            <div className="flex gap-6 text-sm text-slate-500">
-              {["Privacy", "Terms", "Support", "Blog", "Careers"].map(
-                (item) => (
-                  <button
-                    key={item}
-                    className="hover:text-slate-300 transition-colors"
-                  >
-                    {item}
-                  </button>
-                ),
-              )}
-            </div>
-
-            <div className="flex items-center gap-4 text-slate-500">
-              <button className="hover:text-purple-400 transition-colors">
-                <InspectionPanel size={18} />
-              </button>
-              <button className="hover:text-purple-400 transition-colors">
-                <X size={18} />
-              </button>
-              <button className="hover:text-purple-400 transition-colors">
-                <Globe size={18} />
-              </button>
-            </div>
-          </div>
-          <p className="text-center text-slate-600 text-sm mt-8">
-            © 2025 Glamora. Built with love for beauty professionals.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
